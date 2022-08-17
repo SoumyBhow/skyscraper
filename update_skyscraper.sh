@@ -10,7 +10,7 @@ fi
 if [ "$DETAIN" = true ]; then
 if [ ! -d "Detain" ]; then
 echo "Fetching latest Detain/My fork"
-git clone https://github.com/SoumyBhow/skyscraper Detain
+git clone https://github.com/SoumyBhow/skyscraper -b master Detain
 cd Detain || exit
 else
 echo "Updating Detain/My fork"
