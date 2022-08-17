@@ -1,13 +1,7 @@
 #!/bin/bash
-if ! command -v Skyscraper >> /dev/null; then
-echo 'First time setup'
-echo 'Installing required packages...'
-pkg install x11-repo -y
+echo 'Creating and moving into source folder "Skyscraper"...'
+mkdir -p ./Skyscraper && cd ./Skyscraper || exit
 pkg install git wget ffmpeg build-essential qt5-qtbase whiptail -y
-fi
-echo 'Creating and moving into source folder "skysource"...'
-mkdir -p ./skysource && cd ./skysource || exit
-
 DETAIN=false
 if (whiptail --title "Android Skyscraper Installer" --yesno "Do you want to install Detain's/My fork instead of Muljord's original?" 8 78); then
     DETAIN=true
