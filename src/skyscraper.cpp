@@ -627,41 +627,41 @@ void Skyscraper::loadConfig(const QCommandLineParser &parser)
      Files that should ALWAYS be updated from distributed default files
      ----- */
 
-  copyFile("/usr/local/etc/skyscraper/config.ini.example", "config.ini.example");
-  copyFile("/usr/local/etc/skyscraper/README.md", "README.md");
-  copyFile("/usr/local/etc/skyscraper/hints.xml", "hints.xml");
-  copyFile("/usr/local/etc/skyscraper/ARTWORK.md", "ARTWORK.md");
-  copyFile("/usr/local/etc/skyscraper/artwork.xml.example1", "artwork.xml.example1");
-  copyFile("/usr/local/etc/skyscraper/artwork.xml.example2", "artwork.xml.example2");
-  copyFile("/usr/local/etc/skyscraper/artwork.xml.example3", "artwork.xml.example3");
-  copyFile("/usr/local/etc/skyscraper/artwork.xml.example4", "artwork.xml.example4");
-  copyFile("/usr/local/etc/skyscraper/mameMap.csv", "mameMap.csv");
-  copyFile("/usr/local/etc/skyscraper/tgdb_developers.json", "tgdb_developers.json");
-  copyFile("/usr/local/etc/skyscraper/tgdb_publishers.json", "tgdb_publishers.json");
-  copyFile("/usr/local/etc/skyscraper/resources/boxfront.png", "resources/boxfront.png");
-  copyFile("/usr/local/etc/skyscraper/resources/boxside.png", "resources/boxside.png");
-  copyFile("/usr/local/etc/skyscraper/docs/CACHE.md", "cache/README.md");
-  copyFile("/usr/local/etc/skyscraper/cache/priorities.xml.example", "cache/priorities.xml.example");
-  copyFile("/usr/local/etc/skyscraper/import/IMPORT.md", "import/README.md");
-  copyFile("/usr/local/etc/skyscraper/import/definitions.dat.example1", "import/definitions.dat.example1");
-  copyFile("/usr/local/etc/skyscraper/import/definitions.dat.example2", "import/definitions.dat.example2");
+  copyFile("/data/data/com.termux/files/usr/etc/skyscraper/config.ini.example", "config.ini.example");
+  copyFile("/data/data/com.termux/files/usr/etc/skyscraper/README.md", "README.md");
+  copyFile("/data/data/com.termux/files/usr/etc/skyscraper/hints.xml", "hints.xml");
+  copyFile("/data/data/com.termux/files/usr/etc/skyscraper/ARTWORK.md", "ARTWORK.md");
+  copyFile("/data/data/com.termux/files/usr/etc/skyscraper/artwork.xml.example1", "artwork.xml.example1");
+  copyFile("/data/data/com.termux/files/usr/etc/skyscraper/artwork.xml.example2", "artwork.xml.example2");
+  copyFile("/data/data/com.termux/files/usr/etc/skyscraper/artwork.xml.example3", "artwork.xml.example3");
+  copyFile("/data/data/com.termux/files/usr/etc/skyscraper/artwork.xml.example4", "artwork.xml.example4");
+  copyFile("/data/data/com.termux/files/usr/etc/skyscraper/mameMap.csv", "mameMap.csv");
+  copyFile("/data/data/com.termux/files/usr/etc/skyscraper/tgdb_developers.json", "tgdb_developers.json");
+  copyFile("/data/data/com.termux/files/usr/etc/skyscraper/tgdb_publishers.json", "tgdb_publishers.json");
+  copyFile("/data/data/com.termux/files/usr/etc/skyscraper/resources/boxfront.png", "resources/boxfront.png");
+  copyFile("/data/data/com.termux/files/usr/etc/skyscraper/resources/boxside.png", "resources/boxside.png");
+  copyFile("/data/data/com.termux/files/usr/etc/skyscraper/docs/CACHE.md", "cache/README.md");
+  copyFile("/data/data/com.termux/files/usr/etc/skyscraper/cache/priorities.xml.example", "cache/priorities.xml.example");
+  copyFile("/data/data/com.termux/files/usr/etc/skyscraper/import/IMPORT.md", "import/README.md");
+  copyFile("/data/data/com.termux/files/usr/etc/skyscraper/import/definitions.dat.example1", "import/definitions.dat.example1");
+  copyFile("/data/data/com.termux/files/usr/etc/skyscraper/import/definitions.dat.example2", "import/definitions.dat.example2");
 
   /* -----
      Files that will only be overwritten if they don't already exist
      ----- */
 
   // Make sure we have a default config.ini file based on the config.ini.example file
-  copyFile("/usr/local/etc/skyscraper/platforms.json", "platforms.json", false); // False means it won't overwrite if it exists
-  copyFile("/usr/local/etc/skyscraper/screenscraper.json", "screenscraper.json", false);
-  copyFile("/usr/local/etc/skyscraper/config.ini.example", "config.ini", false);
-  copyFile("/usr/local/etc/skyscraper/artwork.xml", "artwork.xml", false);
-  copyFile("/usr/local/etc/skyscraper/aliasMap.csv", "aliasMap.csv", false);
-  copyFile("/usr/local/etc/skyscraper/resources/maskexample.png", "resources/maskexample.png", false);
-  copyFile("/usr/local/etc/skyscraper/resources/frameexample.png", "resources/frameexample.png", false);
-  copyFile("/usr/local/etc/skyscraper/resources/scanlines1.png", "resources/scanlines1.png", false);
-  copyFile("/usr/local/etc/skyscraper/resources/scanlines2.png", "resources/scanlines2.png", false);
+  copyFile("/data/data/com.termux/files/usr/etc/skyscraper/platforms.json", "platforms.json", false); // False means it won't overwrite if it exists
+  copyFile("/data/data/com.termux/files/usr/etc/skyscraper/screenscraper.json", "screenscraper.json", false);
+  copyFile("/data/data/com.termux/files/usr/etc/skyscraper/config.ini.example", "config.ini", false);
+  copyFile("/data/data/com.termux/files/usr/etc/skyscraper/artwork.xml", "artwork.xml", false);
+  copyFile("/data/data/com.termux/files/usr/etc/skyscraper/aliasMap.csv", "aliasMap.csv", false);
+  copyFile("/data/data/com.termux/files/usr/etc/skyscraper/resources/maskexample.png", "resources/maskexample.png", false);
+  copyFile("/data/data/com.termux/files/usr/etc/skyscraper/resources/frameexample.png", "resources/frameexample.png", false);
+  copyFile("/data/data/com.termux/files/usr/etc/skyscraper/resources/scanlines1.png", "resources/scanlines1.png", false);
+  copyFile("/data/data/com.termux/files/usr/etc/skyscraper/resources/scanlines2.png", "resources/scanlines2.png", false);
   // Copy one of the example definitions.dat files if none exists
-  copyFile("/usr/local/etc/skyscraper/import/definitions.dat.example2", "import/definitions.dat", false);
+  copyFile("/data/data/com.termux/files/usr/etc/skyscraper/import/definitions.dat.example2", "import/definitions.dat", false);
 
   /* -----
      END updating files from distribution files

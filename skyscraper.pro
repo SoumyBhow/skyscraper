@@ -7,19 +7,19 @@ win32:CONFIG += console
 QT += core network xml
 QMAKE_CXXFLAGS += -std=c++11
 
-unix:target.path=/usr/local/bin
+unix:target.path=/data/data/com.termux/files/usr/bin
 unix:target.files=Skyscraper Skyscraper.app/Contents/MacOS/Skyscraper
 
-unix:examples.path=/usr/local/etc/skyscraper
+unix:examples.path=/data/data/com.termux/files/usr/etc/skyscraper
 unix:examples.files=config.ini.example README.md hints.xml artwork.xml artwork.xml.example1 artwork.xml.example2 artwork.xml.example3 artwork.xml.example4 aliasMap.csv mameMap.csv docs/ARTWORK.md tgdb_developers.json tgdb_publishers.json platforms.json screenscraper.json
 
-unix:cacheexamples.path=/usr/local/etc/skyscraper/cache
+unix:cacheexamples.path=/data/data/com.termux/files/usr/etc/skyscraper/cache
 unix:cacheexamples.files=cache/priorities.xml.example docs/CACHE.md
 
-unix:impexamples.path=/usr/local/etc/skyscraper/import
+unix:impexamples.path=/data/data/com.termux/files/usr/etc/skyscraper/import
 unix:impexamples.files=docs/IMPORT.md import/definitions.dat.example1 import/definitions.dat.example2
 
-unix:resexamples.path=/usr/local/etc/skyscraper/resources
+unix:resexamples.path=/data/data/com.termux/files/usr/etc/skyscraper/resources
 unix:resexamples.files=resources/maskexample.png resources/frameexample.png resources/boxfront.png resources/boxside.png resources/scanlines1.png resources/scanlines2.png
 
 unix:INSTALLS += target examples cacheexamples impexamples resexamples
