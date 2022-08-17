@@ -1,5 +1,6 @@
 # 🏢Skyscraper
-[![Tests](https://github.com/detain/skyscraper/actions/workflows/ci.yml/badge.svg)](https://github.com/detain/skyscraper/actions/workflows/ci.yml)
+
+Experimental playground fork of Detain's fork of Skyscraper
 
 Original project by [Lars Muldjord](https://github.com/muldjord/skyscraper)
 
@@ -19,7 +20,7 @@ Check the full list of platforms [here](docs/PLATFORMS.md).
 Skyscraper supports a variety of different scraping sources called *scraping modules*. Use these to gather game data into the Skyscraper resource cache. Check the full list of scraping modules [here](docs/SCRAPINGMODULES.md) and read more about the resource cache [here](docs/CACHE.md).
 
 ## 🧑‍💻Code contributions
-I welcome any contributions, although I would like to keep things backwards compatible.
+Please don't contribute here. Instead contribute at [Detain's fork](https://github.com/detain/skyscraper)
 
 ## How to install Skyscraper
 Follow the steps below to install the latest version of Skyscraper. Lines beginning with `$` signifies a command you need run in a terminal on the machine you wish to install it on.

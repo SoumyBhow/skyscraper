@@ -1,40 +1,53 @@
 #!/bin/bash
-{
-    LATEST=`wget -q -O - "https://api.github.com/repos/detain/skyscraper/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'`
+if ! command -v Skyscraper >> /dev/null; then
+echo 'First time setup'
+echo 'Installing required packages...'
+pkg install x11-repo -y
+pkg install git wget ffmpeg build-essential qt5-qtbase whiptail -y
+fi
+echo 'Creating and moving into source folder "skysource"...'
+mkdir -p ./skysource && cd ./skysource || exit
 
-    if [ ! -f VERSION ]
-    then
-	echo "VERSION=0.0.0" > VERSION
-    fi
-    source VERSION
+DETAIN=false
+if (whiptail --title "Android Skyscraper Installer" --yesno "Do you want to install Detain's/My fork instead of Muljord's original?" 8 78); then
+    DETAIN=true
+fi
 
-    handle_error () {
-	local EXITCODE=$?
-	local ACTION=$1
-	rm --force VERSION
-	echo "--- Failed to $ACTION Skyscraper v.${LATEST}, exiting with code $EXITCODE ---"
-	exit $EXITCODE
-    }
+if [ "$DETAIN" = true ]; then
+if [ ! -d "Detain" ]; then
+echo "Fetching latest Detain/My fork"
+git clone https://github.com/SoumyBhow/skyscraper Detain
+cd Detain || exit
+else
+echo "Updating Detain/My fork"
+cd Detain || exit
+git pull
+fi
+echo "Compiling"
+qmake
+make
+make install
+else
+if [ ! -d "Muljdord" ]; then
+mkdir -p ./Muldjord && cd ./Muldjord || exit
+echo 'Downloading source and compiling Skyscraper'
+wget -q -O - https://raw.githubusercontent.com/muldjord/skyscraper/master/update_skyscraper.sh | bash
+else
+echo "Updating Muldjord's Original"
+cd ./Muldjord || exit
+./update_skyscraper.sh
+fi
 
-    if [ $LATEST != $VERSION ]
-    then
-	echo "--- Fetching Skyscraper v.$LATEST ---"
-	wget -N https://github.com/detain/skyscraper/archive/${LATEST}.tar.gz || handle_error "fetch"
-	echo "--- Unpacking ---"
-	tar xvzf ${LATEST}.tar.gz --strip-components 1 --overwrite || handle_error "unpack"
-	rm ${LATEST}.tar.gz
-	echo "--- Cleaning out old build if one exists ---"
-	make --ignore-errors clean
-	rm --force .qmake.stash
-	qmake || handle_error "clean old"
-	echo "--- Building Skyscraper v.$LATEST ---"
-	make -j$(nproc) || handle_error "build"
-	echo "--- Installing Skyscraper v.$LATEST ---"
-	sudo make install || handle_error "install"
-	echo "--- Skyscraper has been updated to v.$LATEST ---"
-    else
-	echo "--- Skyscraper is already the latest version, exiting ---"
-	echo "You can force a reinstall by removing the VERSION file by running rm VERSION. Then rerun ./update_skyscraper.sh afterwards."
-    fi
-    exit
-}
+echo 'Manually copying the Skyscraper binary to /usr/bin...'
+
+
+cp Skyscraper "$PATH"/Skyscraper
+echo 'Making the Skyscraper binary executable...'
+
+
+chmod +x "$PATH"/Skyscraper
+fi
+echo 'Done! Please run the Skyscraper command to make sure it works'
+
+read -n 1 -r -s -p $'Press any key to continue...\n'
+
