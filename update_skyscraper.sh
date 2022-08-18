@@ -43,5 +43,5 @@ chmod +x "$PATH"/Skyscraper
 fi
 echo 'Done! Please run the Skyscraper command to make sure it works'
 
-read -n 1 -r -s -p $'Press any key to continue...\n'
+cd "$(dirname "$0")"
 
