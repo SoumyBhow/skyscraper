@@ -3,7 +3,7 @@ echo 'Creating and moving into source folder "Skyscraper"...'
 mkdir -p ./Skyscraper && cd ./Skyscraper || exit
 pkg install git wget ffmpeg build-essential whiptail -y
 pkg install x11-repo -y
-pkg install qt5-qtbase
+pkg install qt5-qmake
 DETAIN=false
 if (whiptail --title "Android Skyscraper Installer" --yesno "Do you want to install Detain's/My fork instead of Muljord's original?" 8 78); then
     DETAIN=true
