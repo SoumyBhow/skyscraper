@@ -1,8 +1,7 @@
 #!/bin/bash
 echo 'Creating and moving into source folder "Skyscraper"...'
 mkdir -p ./Skyscraper && cd ./Skyscraper || exit
-pkg install git wget ffmpeg build-essential whiptail -y
-pkg install x11-repo -y
+pkg install git wget ffmpeg build-essential x11-repo -y
 pkg install qt5-qmake
 
 if [ ! -d "Gemba" ]; then
@@ -19,8 +18,8 @@ echo "Making Skyscraper compatible with Termux"
 
 sed -i 's|usr/local|data/data/com.termux/files/usr|g' skyscraper.pro
 sed -i 's|usr/local|data/data/com.termux/files/usr|g' ./src/config.cpp
-sed -i 's|usr/local|data/data/com.termux/files/usr|g' ./src/supplementary/scraperdata/check_screenscraper_json_to_idmap.py
-sed -i 's|usr/local|data/data/com.termux/files/usr|g' ./src/supplementary/scraperdata/peas_and_idmap_verify.py
+sed -i 's|usr/local|data/data/com.termux/files/usr|g' ./supplementary/scraperdata/check_screenscraper_json_to_idmap.py
+sed -i 's|usr/local|data/data/com.termux/files/usr|g' ./supplementary/scraperdata/peas_and_idmap_verify.py
 
 echo "Compiling"
 qmake
