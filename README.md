@@ -2,7 +2,7 @@
 
 Script to install [Skycraper](https://github.com/gemba/skyscraper) on Android Termux
 
-This project makes use of [Gemba's](https://github.com/gemba) fork.
+This project makes use of [Gemba's](https://github.com/gemba) fork. Originally it used both the original and [Detain's](https://github.com/detain/skyscraper) fork but they are no longer maintained.
 
 Original project by [Lars Muldjord](https://github.com/muldjord/skyscraper)
 
@@ -15,7 +15,8 @@ For more details of the project, please visit the [repo](https://github.com/gemb
 ## How to install Skyscraper (Android Termux)
 Follow the steps below to install the latest version of Skyscraper.
 ### Download, compile and install
-When you've installed the prerequisites as described above, you can install Skyscraper by typing in the following commands in Termux:
+
+You can install Skyscraper in Termux by typing in the following commands:
 ```
 wget -q -O - https://raw.githubusercontent.com/SoumyBhow/skyscraper/master/update_skyscraper.sh | bash
 ```
