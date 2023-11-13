@@ -4,35 +4,29 @@ mkdir -p ./Skyscraper && cd ./Skyscraper || exit
 pkg install git wget ffmpeg build-essential whiptail -y
 pkg install x11-repo -y
 pkg install qt5-qmake
-DETAIN=false
-if (whiptail --title "Android Skyscraper Installer" --yesno "Do you want to install Detain's/My fork instead of Muljord's original?" 8 78); then
-    DETAIN=true
-fi
 
-if [ "$DETAIN" = true ]; then
-if [ ! -d "Detain" ]; then
-echo "Fetching latest Detain/My fork"
-git clone https://github.com/SoumyBhow/skyscraper -b master Detain
-cd Detain || exit
+if [ ! -d "Gemba" ]; then
+echo "Fetching latest Gemba fork"
+git clone https://github.com/gemba/skyscraper -b dev_reloaded Gemba
+cd Gemba || exit
 else
-echo "Updating Detain/My fork"
-cd Detain || exit
+echo "Updating Gemba fork"
+cd Gemba || exit
 git pull
 fi
+
+echo "Making Skyscraper compatible with Termux"
+
+sed -i 's|usr/local|data/data/com.termux/files/usr|g' skyscraper.pro
+sed -i 's|usr/local|data/data/com.termux/files/usr|g' ./src/config.cpp
+sed -i 's|usr/local|data/data/com.termux/files/usr|g' ./src/supplementary/scraperdata/check_screenscraper_json_to_idmap.py
+sed -i 's|usr/local|data/data/com.termux/files/usr|g' ./src/supplementary/scraperdata/peas_and_idmap_verify.py
+
 echo "Compiling"
 qmake
 make
 make install
-else
-if [ ! -d "Muljdord" ]; then
-mkdir -p ./Muldjord && cd ./Muldjord || exit
-echo 'Downloading source and compiling Skyscraper'
-wget -q -O - https://raw.githubusercontent.com/muldjord/skyscraper/master/update_skyscraper.sh | bash
-else
-echo "Updating Muldjord's Original"
-cd ./Muldjord || exit
-./update_skyscraper.sh
-fi
+
 
 echo 'Manually copying the Skyscraper binary to /usr/bin...'
 
