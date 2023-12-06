@@ -6,7 +6,7 @@ pkg install qt5-qmake
 
 if [ ! -d "Gemba" ]; then
 echo "Fetching latest Gemba fork"
-git clone https://github.com/gemba/skyscraper -b dev_reloaded Gemba
+git clone https://github.com/gemba/skyscraper -b master Gemba
 cd Gemba || exit
 else
 echo "Updating Gemba fork"
