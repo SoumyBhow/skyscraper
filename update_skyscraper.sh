@@ -11,7 +11,8 @@ cd Gemba || exit
 else
 echo "Updating Gemba fork"
 cd Gemba || exit
-git pull
+git fetch --all
+git reset --hard origin/master
 fi
 
 echo "Making Skyscraper compatible with Termux"
