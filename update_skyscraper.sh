@@ -36,7 +36,7 @@ echo 'Making the Skyscraper binary executable...'
 
 
 chmod +x "$PATH"/Skyscraper
-fi
+
 echo 'Done! Please run the Skyscraper command to make sure it works'
 
 cd "$(dirname "$0")"
